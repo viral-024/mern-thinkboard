@@ -6,12 +6,14 @@ import NoteDetailPage from './pages/NoteDetailPage';
 
 const App = () => {
   return (
-    <div>
-      <button className="btn btn-primary"> Click me</button>
+    <div className="relative h-full w-full" >
+      <div
+        className="absolute inset-0 -z-10 h-full w-full [background:radial-gradient(125%_125%_at_50%_10%,#000_60%,#00FF9D40_100%)]"
+      />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/create" element={<CreatePage />} />
-        <Route path="/notes/:id" element={<NoteDetailPage />} />
+        <Route path="/note/:id" element={<NoteDetailPage />} />
       </Routes>
     </div>
   )
