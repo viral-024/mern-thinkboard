@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
-import axios from 'axios';
 import { toast } from 'react-hot-toast';
 
+import api from '../lib/axios';
 import Navbar from '../components/Navbar';
 import RateLimitedUI from '../components/RateLimitedUI';
 import { Notebook } from 'lucide-react';
@@ -16,7 +16,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchNotes = async () => {
       try{
-        const response = await axios.get("http://localhost:5001/api/notes/");
+        const response = await api.get("/notes");
         console.log(response.data);
         setNotes(response.data);
         setIsRatelimited(false);

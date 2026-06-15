@@ -20,6 +20,8 @@ frontend/.env.local
 # Vite build output
 dist/
 frontend/dist/
+build/
+frontend/build/
 
 # Test/build cache
 coverage/
@@ -30,6 +32,8 @@ backend/.vite/
 frontend/.vite/
 .cache/
 .eslintcache
+.npm/
+.pnpm-store/
 
 # Logs
 *.log
@@ -46,3 +50,7 @@ frontend/index.txt
 .idea/
 .DS_Store
 Thumbs.db
+
+# Hosting/deploy output
+.vercel/
+.netlify/

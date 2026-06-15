@@ -2,12 +2,22 @@ import { Link } from "react-router";
 import { PenSquareIcon, Trash2Icon } from "lucide-react";
 import { formatDate } from "../lib/utils";
 
-
 const NoteCard = ({ note }) => {
   return (
     <Link
       to={`/note/${note._id}`}
-      className="card bg-base-100 hover:shadow-lg transition-all duration-200 border-t-4 border-solid border-[#00FF9D]"
+      className="
+        card
+        bg-base-100
+        border-t-4
+        border-primary
+        rounded-xl
+        hover:shadow-xl
+        hover:shadow-primary/10
+        hover:-translate-y-1
+        transition-all
+        duration-300
+      "
     >
       <div className="card-body">
         <h3 className="card-title text-base-content">
@@ -24,11 +34,11 @@ const NoteCard = ({ note }) => {
           </span>
 
           <div className="flex items-center gap-1">
-            <button className="btn btn-ghost btn-xs">
+            <button className="btn btn-ghost btn-xs hover:bg-primary/10">
               <PenSquareIcon className="size-4" />
             </button>
 
-            <button className="btn btn-ghost btn-xs text-error">
+            <button className="btn btn-ghost btn-xs text-error hover:bg-error/10">
               <Trash2Icon className="size-4" />
             </button>
           </div>

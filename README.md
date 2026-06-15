@@ -14,10 +14,11 @@ ThinkBoard is a MERN-style notes application with an Express/MongoDB backend and
 - Added routes for home, create note, and note detail pages.
 - Added Tailwind CSS and DaisyUI configuration.
 - Added toast support with `react-hot-toast`.
-- Added Axios for calling the backend API.
+- Added a shared Axios client for calling the backend API from the frontend.
 - Added Lucide icons for UI actions.
 - Built the home page to fetch notes from the backend and render note cards.
 - Added a navbar with a new note button.
+- Built the create-note page with title/content validation, loading state, API submit, success toast, and redirect back to the notes list.
 - Added a rate-limit UI message for `429` API responses.
 - Updated `.gitignore` for dependencies, env files, build output, logs, coverage, and cache folders.
 
@@ -74,6 +75,7 @@ thinkboard/
         NoteCard.jsx
         RateLimitedUI.jsx
       lib/
+        axios.js
         utils.js
       pages/
         CreatePage.jsx
@@ -112,6 +114,12 @@ Frontend packages currently used:
 ```bash
 npm install react react-dom react-router axios react-hot-toast lucide-react
 npm install -D vite @vitejs/plugin-react eslint @eslint/js globals eslint-plugin-react-hooks eslint-plugin-react-refresh tailwindcss postcss autoprefixer daisyui @types/react @types/react-dom
+```
+
+The frontend uses `frontend/src/lib/axios.js` as the shared API client:
+
+```text
+http://localhost:5001/api
 ```
 
 ## Environment Variables
@@ -197,3 +205,11 @@ npm run build
 npm run lint
 npm run preview
 ```
+
+## Current Frontend Pages
+
+| Route | Page | Description |
+| --- | --- | --- |
+| `/` | Home | Fetches notes, shows loading state, handles rate-limit responses, and renders note cards |
+| `/create` | Create Note | Creates a new note with validation, toast feedback, and redirect after success |
+| `/note/:id` | Note Detail | Placeholder route for viewing/editing a single note |
