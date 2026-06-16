@@ -19,6 +19,8 @@ ThinkBoard is a MERN-style notes application with an Express/MongoDB backend and
 - Built the home page to fetch notes from the backend and render note cards.
 - Added a navbar with a new note button.
 - Built the create-note page with title/content validation, loading state, API submit, success toast, and redirect back to the notes list.
+- Added delete-note behavior from note cards with confirmation, API delete request, local UI update, and toast feedback.
+- Added an empty notes screen with a call-to-action for creating the first note.
 - Added a rate-limit UI message for `429` API responses.
 - Updated `.gitignore` for dependencies, env files, build output, logs, coverage, and cache folders.
 
@@ -73,6 +75,7 @@ thinkboard/
       components/
         Navbar.jsx
         NoteCard.jsx
+        NotesNotFound.jsx
         RateLimitedUI.jsx
       lib/
         axios.js
@@ -210,6 +213,6 @@ npm run preview
 
 | Route | Page | Description |
 | --- | --- | --- |
-| `/` | Home | Fetches notes, shows loading state, handles rate-limit responses, and renders note cards |
+| `/` | Home | Fetches notes, shows loading and empty states, handles rate-limit responses, renders note cards, and supports deleting notes |
 | `/create` | Create Note | Creates a new note with validation, toast feedback, and redirect after success |
 | `/note/:id` | Note Detail | Placeholder route for viewing/editing a single note |
