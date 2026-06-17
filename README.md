@@ -1,6 +1,6 @@
 # ThinkBoard
 
-ThinkBoard is a MERN-style notes application with an Express/MongoDB backend and a React/Vite frontend. The backend exposes REST APIs for notes, connects to MongoDB with Mongoose, and uses Upstash Redis for rate limiting. The frontend is set up with React Router, Tailwind CSS, DaisyUI, Axios, toast notifications, and Lucide icons.
+ThinkBoard is a MERN-style notes application with an Express/MongoDB backend and a React/Vite frontend. The backend exposes REST APIs for notes, connects to MongoDB with Mongoose, and uses Upstash Redis for rate limiting. The frontend uses React Router, Tailwind CSS, DaisyUI, Axios, toast notifications, and Lucide icons.
 
 ## What We Have Done So Far
 
@@ -8,6 +8,7 @@ ThinkBoard is a MERN-style notes application with an Express/MongoDB backend and
 - Connected MongoDB using Mongoose.
 - Added a Note model and REST API routes for creating, reading, updating, and deleting notes.
 - Added Upstash Redis rate limiting middleware.
+- Updated rate limiting to use the request IP address as the Upstash rate-limit key.
 - Enabled CORS for the Vite frontend at `http://localhost:5173`.
 - Created the React frontend with Vite.
 - Fixed React Router setup so the app renders correctly.
@@ -21,8 +22,9 @@ ThinkBoard is a MERN-style notes application with an Express/MongoDB backend and
 - Built the create-note page with title/content validation, loading state, API submit, success toast, and redirect back to the notes list.
 - Added delete-note behavior from note cards with confirmation, API delete request, local UI update, and toast feedback.
 - Added an empty notes screen with a call-to-action for creating the first note.
-- Added a rate-limit UI message for `429` API responses.
-- Updated `.gitignore` for dependencies, env files, build output, logs, coverage, and cache folders.
+- Built the note detail page to fetch one note, edit title/content, save updates, delete the note, and navigate back to the notes list.
+- Added loading and toast feedback for note detail actions.
+- Consolidated ignore rules into the root `.gitignore` after removing the frontend-level `.gitignore`.
 
 ## Tech Stack
 
@@ -55,7 +57,7 @@ ThinkBoard is a MERN-style notes application with an Express/MongoDB backend and
 ## Project Structure
 
 ```text
-thinkboard/
+mern-thinkboard/
   backend/
     src/
       config/
@@ -182,6 +184,14 @@ Base URL:
 | PUT | `/api/notes/:id` | Update a note |
 | DELETE | `/api/notes/:id` | Delete a note |
 
+## Current Frontend Pages
+
+| Route | Page | Description |
+| --- | --- | --- |
+| `/` | Home | Fetches notes, shows loading and empty states, handles rate-limit responses, renders note cards, and supports deleting notes |
+| `/create` | Create Note | Creates a new note with validation, toast feedback, and redirect after success |
+| `/note/:id` | Note Detail | Fetches one note, supports editing, saving, deleting, loading state, and toast feedback |
+
 ## Note Data Format
 
 ```json
@@ -208,11 +218,3 @@ npm run build
 npm run lint
 npm run preview
 ```
-
-## Current Frontend Pages
-
-| Route | Page | Description |
-| --- | --- | --- |
-| `/` | Home | Fetches notes, shows loading and empty states, handles rate-limit responses, renders note cards, and supports deleting notes |
-| `/create` | Create Note | Creates a new note with validation, toast feedback, and redirect after success |
-| `/note/:id` | Note Detail | Placeholder route for viewing/editing a single note |

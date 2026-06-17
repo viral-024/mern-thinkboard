@@ -4,23 +4,28 @@ backend/node_modules/
 frontend/node_modules/
 
 # Environment variables
-backend/.env
-frontend/.env
 .env
 .env.local
 .env.*.local
+*.local
+backend/.env
 backend/.env.*
-frontend/.env.*
 backend/.env.local
+frontend/.env
+frontend/.env.*
 frontend/.env.local
 !.env.example
 !backend/.env.example
 !frontend/.env.example
 
-# Vite build output
+# Build output
 dist/
-frontend/dist/
+dist-ssr/
 build/
+backend/dist/
+backend/build/
+frontend/dist/
+frontend/dist-ssr/
 frontend/build/
 
 # Test/build cache
@@ -34,6 +39,7 @@ frontend/.vite/
 .eslintcache
 .npm/
 .pnpm-store/
+.turbo/
 tmp/
 temp/
 
@@ -45,6 +51,7 @@ pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Local scratch files
 backend/index.txt
 frontend/index.txt
 
