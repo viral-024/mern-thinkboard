@@ -1,6 +1,12 @@
 # ThinkBoard
 
+[Live Demo](https://mern-thinkboard-033n.onrender.com)
+
 ThinkBoard is a MERN-style notes application with an Express/MongoDB backend and a React/Vite frontend. The backend exposes REST APIs for notes, connects to MongoDB with Mongoose, and uses Upstash Redis for rate limiting. The frontend uses React Router, Tailwind CSS, DaisyUI, Axios, toast notifications, and Lucide icons.
+
+## Important Note
+
+This app is currently public and global. There is no authentication yet, so everyone sees the same shared notes list. Notes created, updated, or deleted by one visitor can be seen by other visitors.
 
 ## What We Have Done So Far
 
@@ -24,6 +30,8 @@ ThinkBoard is a MERN-style notes application with an Express/MongoDB backend and
 - Added an empty notes screen with a call-to-action for creating the first note.
 - Built the note detail page to fetch one note, edit title/content, save updates, delete the note, and navigate back to the notes list.
 - Added loading and toast feedback for note detail actions.
+- Deployed the full-stack app on Render at `https://mern-thinkboard-033n.onrender.com`.
+- Kept the app global/shared for now because authentication has not been added yet.
 - Consolidated ignore rules into the root `.gitignore` after removing the frontend-level `.gitignore`.
 
 ## Tech Stack
@@ -218,3 +226,5 @@ npm run build
 npm run lint
 npm run preview
 ```
+
+
